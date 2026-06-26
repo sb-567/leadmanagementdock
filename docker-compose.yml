@@ -6,6 +6,7 @@ services:
     container_name: laravel_app
     volumes:
       - .:/var/www
+    working_dir: /var/www
     networks:
       - laravel_net
     depends_on:
@@ -27,13 +28,14 @@ services:
   db:
     image: mysql:8.0
     container_name: laravel_mysql
-    ports:
-    - "3307:3306" 
+    restart: always
     environment:
       MYSQL_DATABASE: leadmanagement
       MYSQL_ROOT_PASSWORD: secret
       MYSQL_USER: laravel
       MYSQL_PASSWORD: secret
+    ports:
+      - "3307:3306"
     volumes:
       - db_data:/var/lib/mysql
     networks:
