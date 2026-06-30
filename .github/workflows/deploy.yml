@@ -36,6 +36,6 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          cd /home/ubuntu/leadmanagement
+          cd /home/ubuntu/leadmanagementdock
           docker compose pull
           docker compose up -d
