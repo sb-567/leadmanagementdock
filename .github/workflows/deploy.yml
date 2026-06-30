@@ -1,4 +1,4 @@
-name: Build and Push Docker Image V3
+name: Build and Push Docker Image V4
 
 on:
   push:
@@ -15,6 +15,14 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v4
 
+    - name: Check Secret Length
+      run: |
+        echo "Username Length: ${#DOCKER_USERNAME}"
+        echo "Password Length: ${#DOCKER_PASSWORD}"
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        
     - name: Login to Docker Hub
       uses: docker/login-action@v3
       with:
