@@ -1,4 +1,4 @@
-name: Build and Push Docker Image V2
+name: Build and Push Docker Image V3
 
 on:
   push:
