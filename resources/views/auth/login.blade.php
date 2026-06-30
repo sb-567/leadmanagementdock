@@ -6,7 +6,7 @@
         <div class="card shadow-sm">
             <div class="card-body p-4">
 
-                <h4 class="mb-4 text-center">Lead CRM Login</h4>
+                <h4 class="mb-4 text-center">Lead CRM Login1</h4>
 
                 <form method="POST" action="{{ route('login') }}">
                     @csrf

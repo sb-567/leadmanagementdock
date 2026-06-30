@@ -27,4 +27,15 @@ jobs:
 
     - name: Push Docker Image
       run: |
-        docker push sb567dock/leadmanagement:latest
+        docker push sb567dock/leadmanagement:
+        
+    - name: Deploy to AWS
+      uses: appleboy/ssh-action@v1.2.2
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          cd /home/ubuntu/leadmanagement
+          docker compose pull
+          docker compose up -d
